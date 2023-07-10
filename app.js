@@ -9,7 +9,7 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
-const allowedOrigins = [ "http://localhost:3001","http://localhost:3000" , "http://ec2-43-201-220-178.ap-northeast-2.compute.amazonaws.com" , "http://koicode.co.kr"]
+const allowedOrigins = [ "http://localhost:3001","http://localhost:3000" , "http://ec2-43-201-220-178.ap-northeast-2.compute.amazonaws.com" ,"http://www.koicode.co.kr"]
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,6 +28,7 @@ app.use(cors({
     // allow requests with no origin 
     // (like mobile apps or curl requests)
     console.log('request orign', origin)
+    console.log('include ', allowedOrigins.indexOf(origin))
     if (!origin) return callback(null, true);
     if (allowedOrigins.indexOf(origin) === -1) {
       var msg = 'The CORS policy for this site does not ' +
