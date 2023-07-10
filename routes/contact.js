@@ -55,6 +55,7 @@ async function verifyRecaptcha(token) {
       response: token,
     },
   });
+  console.log('response', response)
 
   return response.data.success;
 }
