@@ -9,7 +9,7 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
-const allowedOrigins = [ "http://localhost:3001","http://localhost:3000" , "http://ec2-43-201-220-178.ap-northeast-2.compute.amazonaws.com"]
+const allowedOrigins = [ "http://localhost:3001","http://localhost:3000" , "http://ec2-43-201-220-178.ap-northeast-2.compute.amazonaws.com" , "http://koicode.co.kr"]
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +31,7 @@ app.use(cors({
     if (allowedOrigins.indexOf(origin) === -1) {
       var msg = 'The CORS policy for this site does not ' +
         'allow access from the specified Origin.';
+        console.log('msg', msg)
       return callback(new Error(msg), false);
     }
     return callback(null, true);

@@ -55,7 +55,6 @@ async function verifyRecaptcha(token) {
       response: token,
     },
   });
-  console.log('response', response)
 
   return response.data.success;
 }
@@ -67,7 +66,6 @@ router.post('/email', async function (req, res, next) {
   // return false;
   try {
     const contactInfo = req.body;
-    console.log('contactInfo', contactInfo)
     const senderEmail = contactInfo.email;
     const recipientEmail = 'koicode@koicode.co.kr';
     const subject = `[KOI-CODE]홈페이지에서 ${contactInfo.name}님의 문의 요청이 들어왔습니다.`;
